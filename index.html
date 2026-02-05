@@ -1,193 +1,848 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Priyanka Sukre | Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyanka Sukre | Data & Product Strategy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A0E27;
+            --secondary: #1a1f3a;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --text: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border: rgba(255, 255, 255, 0.1);
+            --glow: rgba(99, 102, 241, 0.3);
+        }
 
-<style>
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f4f6f9;
-  margin: 0;
-  color: #222;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 60px 20px;
-}
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
+        /* Background gradient animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+            animation: gradientShift 20s ease infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
 
-header h1 {
-  font-size: 48px;
-}
+        @keyframes gradientShift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(10%, 10%); }
+        }
 
-section {
-  background: #f8fafc;
-  padding: 30px;
-  border-radius: 12px;
-  margin-bottom: 30px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-}
-.hero {
-  background: #1f2933;
-  color: white;
-  text-align: center;
-  padding: 90px 20px;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
 
-.tagline {
-  font-size: 18px;
-  opacity: 0.9;
-  margin-top: 10px;
-}
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-}
+        /* Navigation */
+        nav {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            animation: slideDown 0.8s ease;
+        }
 
-.card {
- background: white;
-  padding: 20px;
-  border-radius: 12px;
-  font-weight: 600;
-  border: 1px solid #e5e7eb;
-}
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-footer {
-  text-align: center;
-  color: #555;
-}
-  .profile-pic {
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 25px;
-  border: 4px solid white;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-}
-  .hero {
-  animation: fadeIn 1.2s ease-in;
-}
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-  .contact-actions {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-.btn {
-  background: #1a73e8;
-  color: white;
-  padding: 12px 22px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-}
-  .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
 
-.skill-card {
-  background: white;
-  padding: 22px;
-  border-radius: 14px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-}
+        .nav-links a:hover {
+            color: var(--accent-light);
+        }
 
-.skill-card h3 {
-  margin-bottom: 10px;
-  color: #1a73e8;
-}
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-</style>
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 6rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(3rem, 7vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--text-muted) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease 0.7s both;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease 0.9s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 1.1s both;
+        }
+
+        /* Profile Image */
+        .profile-image-wrapper {
+            position: relative;
+            animation: fadeInUp 1s ease 0.9s both;
+        }
+
+        .profile-image {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 3px solid var(--border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+        }
+
+        .profile-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: 10px;
+            bottom: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .profile-image-wrapper:hover::before {
+            opacity: 0.3;
+        }
+
+        .profile-image-wrapper:hover .profile-image {
+            transform: translate(-5px, -5px);
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            padding: 0.4rem 1rem;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--accent-light);
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .skill-list {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 20px var(--glow);
+        }
+
+        .timeline-year {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--accent-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: var(--secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .contact-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .profile-image-wrapper {
+                text-align: center;
+                order: -1;
+            }
+
+            .profile-image {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .profile-image {
+                max-width: 250px;
+                height: 250px;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <div class="logo">PS</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
 
-<div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-label">Data • Product • Strategy</div>
+                    <h1>Priyanka Sukre</h1>
+                    <p class="hero-description">
+                        Transforming complex data into strategic insights and driving product excellence through analytics-driven decision making.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                        <a href="resume.docx" class="btn btn-secondary" download>Download Resume</a>
+                    </div>
+                </div>
+                <div class="profile-image-wrapper">
+                    <img src="profile.jpg" alt="Priyanka Sukre" class="profile-image">
+                </div>
+            </div>
+        </section>
 
-<header class="hero">
-  <img src="profile.jpg" class="profile-pic">
-  <h1>Hello, I'm Priyanka 👋</h1>
-  <p class="tagline"> Data, Product & Strategy</p>
-</header>
+        <!-- About Section -->
+        <section id="about" class="fade-in">
+            <div class="section-header">
+                <div class="section-label">About Me</div>
+                <h2 class="section-title">Building Strategic Solutions</h2>
+                <p class="section-description">
+                    I'm a data-driven professional specializing in program management, product analytics, and strategic operations. With expertise spanning from BI tools to AI-powered productivity, I help organizations make informed decisions and drive measurable outcomes.
+                </p>
+            </div>
 
-<section>
-  <h2>Projects</h2>
-  <div class="projects">
-    <div class="card">Expense Dashboard</div>
-    <div class="card">Learning Tracker</div>
-    <div class="card">Analytics Project</div>
-  </div>
-</section>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">Current</div>
+                    <h3>Strategic Operations Lead</h3>
+                    <div class="timeline-company">Building Portfolio Excellence</div>
+                    <p class="timeline-description">
+                        Focusing on program governance, analytics frameworks, and AI-powered productivity solutions. Driving cross-functional initiatives and portfolio optimization strategies.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">Previous Experience</div>
+                    <h3>Product & Business Analytics</h3>
+                    <div class="timeline-company">Data-Driven Strategy</div>
+                    <p class="timeline-description">
+                        Led KPI development, user behavior analysis, and business intelligence initiatives. Created dashboards and forecasting models that influenced strategic decisions.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-<section>
-  <h2>Skills & Expertise</h2>
-  <div class="skills-grid">
+        <!-- Projects Section -->
+        <section id="projects" class="fade-in">
+            <div class="section-header">
+                <div class="section-label">Featured Work</div>
+                <h2 class="section-title">Projects & Analytics</h2>
+                <p class="section-description">
+                    A showcase of analytics solutions, dashboards, and strategic projects demonstrating data storytelling and business impact.
+                </p>
+            </div>
 
-    <div class="skill-card">
-      <h3>📌 Program & Strategic Operations</h3>
-      <p>Program Management, Portfolio Governance, Risk & Dependency Management, Stakeholder & Vendor Management, Agile, Process Optimization</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-number">01</div>
+                    <h3>Expense Analytics Dashboard</h3>
+                    <p>
+                        Comprehensive expense tracking and analysis system with interactive visualizations, budget forecasting, and variance analysis. Built using Power BI with advanced DAX measures for real-time insights.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">DAX</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Excel</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">02</div>
+                    <h3>Learning Tracker Platform</h3>
+                    <p>
+                        Gamified learning management system tracking skill development, course completion, and performance metrics. Features progress visualization and personalized learning recommendations.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Analytics</span>
+                        <span class="tag">Tableau</span>
+                        <span class="tag">KPI Framework</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">03</div>
+                    <h3>User Behavior Analytics</h3>
+                    <p>
+                        End-to-end analytics project examining user engagement patterns, conversion funnels, and product performance. Delivered actionable insights that improved user retention by identifying key drop-off points.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">SQL</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">BI Tools</span>
+                        <span class="tag">Statistics</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-number">04</div>
+                    <h3>Program Portfolio Dashboard</h3>
+                    <p>
+                        Executive-level dashboard for portfolio governance tracking project health, resource allocation, and risk management across multiple programs. Automated reporting reduced manual effort by 60%.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">JIRA</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Agile Metrics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="fade-in">
+            <div class="section-header">
+                <div class="section-label">Expertise</div>
+                <h2 class="section-title">Skills & Capabilities</h2>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-icon">📌</div>
+                    <h3>Program & Strategic Operations</h3>
+                    <div class="skill-list">
+                        Program Management • Portfolio Governance • Risk & Dependency Management • Stakeholder & Vendor Management • Agile Methodologies • Process Optimization
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-icon">📊</div>
+                    <h3>Product & Business Analytics</h3>
+                    <div class="skill-list">
+                        KPI Frameworks • Product Performance Metrics • User Behavior Analysis • Business Intelligence • Forecasting & Predictive Analytics • Variance Analysis
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-icon">📈</div>
+                    <h3>Data & BI Tools</h3>
+                    <div class="skill-list">
+                        SQL (Advanced) • Power BI • Tableau • Advanced Excel • Dashboard Design • Data Storytelling & Visualization
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-icon">🛠</div>
+                    <h3>Product & Delivery</h3>
+                    <div class="skill-list">
+                        JIRA Administration • BRD/PRD Documentation • Functional & Non-Functional Requirements • Agile/Scrum Ceremonies • Sprint Planning
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-icon">🤖</div>
+                    <h3>AI & Productivity Tools</h3>
+                    <div class="skill-list">
+                        ChatGPT Integration • Claude AI • LM Arena • Prompt Engineering • AI-Powered Analytics • Automation Solutions
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-icon">💡</div>
+                    <h3>Strategic Thinking</h3>
+                    <div class="skill-list">
+                        Data-Driven Decision Making • Strategic Planning • Problem Solving • Cross-Functional Leadership • Change Management
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="fade-in">
+            <div class="section-header" style="text-align: center; max-width: 700px; margin: 0 auto 4rem;">
+                <div class="section-label">Get In Touch</div>
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-description">
+                    Interested in collaboration or have a project in mind? I'd love to hear from you.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <a href="mailto:priyankagudipudi@gmail.com" class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p>priyankagudipudi@gmail.com</p>
+                </a>
+
+                <a href="https://www.linkedin.com/in/priyanka-sukre-41385b60/" target="_blank" class="contact-card">
+                    <div class="contact-icon">🔗</div>
+                    <h3>LinkedIn</h3>
+                    <p>Connect with me</p>
+                </a>
+
+                <a href="resume.docx" download class="contact-card">
+                    <div class="contact-icon">📄</div>
+                    <h3>Resume</h3>
+                    <p>Download my CV</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 Priyanka Sukre. Crafted with precision and purpose.</p>
+        </footer>
     </div>
 
-    <div class="skill-card">
-      <h3>📊 Product & Business Analytics</h3>
-      <p>KPI Frameworks, Product Performance, User Behavior Analysis, BI, Forecasting, Variance Analysis</p>
-    </div>
+    <script>
+        // Scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
-    <div class="skill-card">
-      <h3>📈 Data & BI Tools</h3>
-      <p>SQL, Power BI, Tableau, Advanced Excel, Dashboards, Data Storytelling</p>
-    </div>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
 
-    <div class="skill-card">
-      <h3>🛠 Product & Delivery Tools</h3>
-      <p>JIRA, BRD/PRD Documentation, Functional & Non-Functional Requirements</p>
-    </div>
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    <div class="skill-card">
-      <h3>🤖 AI & Productivity</h3>
-      <p>ChatGPT, Claude AI, LM Arena AI</p>
-    </div>
-
-  </div>
-</section>
-
-<section>
- <h2>Contact</h2>
-  <div class="contact-actions">
-    <a href="mailto:priyankagudipudi@gmail.com" class="btn">📧 Email Me</a>
-    <a href="https://www.linkedin.com/in/priyanka-sukre-41385b60/" target="_blank" class="btn">🔗 LinkedIn</a>
-    <a href="resume.docx" class="btn" download>📄 Download Resume</a>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Priyanka Sukre</p>
-</footer>
-
-</div>
-
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
