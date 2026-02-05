@@ -81,6 +81,45 @@ footer {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+  .contact-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background: #1a73e8;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+  .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.skill-card h3 {
+  margin-bottom: 10px;
+  color: #1a73e8;
+}
+
 </style>
 </head>
 
@@ -104,14 +143,44 @@ footer {
 </section>
 
 <section>
-  <h2>Skills</h2>
-  <p>Data Analysis • Process Improvement • Tech Tools • SaaS</p>
+  <h2>Skills & Expertise</h2>
+  <div class="skills-grid">
+
+    <div class="skill-card">
+      <h3>📌 Program & Strategic Operations</h3>
+      <p>Program Management, Portfolio Governance, Risk & Dependency Management, Stakeholder & Vendor Management, Agile, Process Optimization</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>📊 Product & Business Analytics</h3>
+      <p>KPI Frameworks, Product Performance, User Behavior Analysis, BI, Forecasting, Variance Analysis</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>📈 Data & BI Tools</h3>
+      <p>SQL, Power BI, Tableau, Advanced Excel, Dashboards, Data Storytelling</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>🛠 Product & Delivery Tools</h3>
+      <p>JIRA, BRD/PRD Documentation, Functional & Non-Functional Requirements</p>
+    </div>
+
+    <div class="skill-card">
+      <h3>🤖 AI & Productivity</h3>
+      <p>ChatGPT, Claude AI, LM Arena AI</p>
+    </div>
+
+  </div>
 </section>
 
 <section>
-  <h2>Contact</h2>
-  <p>Email: priyankagudipudi@gmail.com</p>
-  <p>Mobile: +91-9822571517</p>
+ <h2>Contact</h2>
+  <div class="contact-actions">
+    <a href="mailto:priyankagudipudi@gmail.com" class="btn">📧 Email Me</a>
+    <a href="https://www.linkedin.com/in/priyanka-sukre-41385b60/" target="_blank" class="btn">🔗 LinkedIn</a>
+    <a href="resume.pdf" class="btn" download>📄 Download Resume</a>
+  </div>
 </section>
 
 <footer>
