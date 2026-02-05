@@ -3,82 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <title>Priyanka Sukre | Portfolio</title>
+
 <style>
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f4f6f9;
   margin: 0;
-  background: #f5f7fa;
-  color: #333;
+  color: #222;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 60px 20px;
 }
 
 header {
-  background: #1f2933;
-  color: white;
-  padding: 60px 20px;
   text-align: center;
+  margin-bottom: 60px;
+}
+
+header h1 {
+  font-size: 48px;
 }
 
 section {
-  padding: 50px 20px;
-  max-width: 900px;
-  margin: auto;
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 
 .card {
-  background: white;
+ background: white;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  font-weight: 600;
+  border: 1px solid #e5e7eb;
 }
 
 footer {
-  background: #1f2933;
-  color: white;
   text-align: center;
-  padding: 20px;
+  color: #555;
+}
+  .profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Hi, I'm Priyanka 👋</h1>
-  <p>Transitioning into Tech | Data & Process Enthusiast</p>
-</header>
+<div class="container">
 
-<section>
-  <h2>About Me</h2>
-  <p>
-    I’m transitioning from the social sector into the corporate and tech space. 
-    I enjoy working with data, improving systems, and building simple digital solutions.
-  </p>
-</section>
+<header>
+  <img src="profile.jpg" class="profile-pic">
+  <h1>Hello, I’m Priyanka 👋</h1>
+  <p>I’m transitioning into tech and love working with data and systems.</p>
+</header>
 
 <section>
   <h2>Projects</h2>
   <div class="projects">
-    <div class="card">Expense Tracker Dashboard</div>
-    <div class="card">Learning Progress Tracker</div>
+    <div class="card">Expense Dashboard</div>
+    <div class="card">Learning Tracker</div>
     <div class="card">Analytics Project</div>
   </div>
 </section>
 
 <section>
   <h2>Skills</h2>
-  <p>Data Analysis • Process Improvement • Tech Tools • SaaS Basics</p>
+  <p>Data Analysis • Process Improvement • Tech Tools • SaaS</p>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <p>Email: priyankagudipudi@gmail.com</p>
+  <p>Mobile: +91-9822571517</p>
 </section>
 
 <footer>
-  <p>Contact: yourname@email.com</p>
+  <p>© 2026 Priyanka Sukre</p>
 </footer>
+
+</div>
 
 </body>
 </html>
-
